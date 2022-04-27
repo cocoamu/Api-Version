@@ -36,7 +36,7 @@ public class ApiVersionCondition implements RequestCondition<ApiVersionCondition
     @Override
     public ApiVersionCondition getMatchingCondition(HttpServletRequest request) {
         String version = request.getHeader(ApiVersionConstant.API_VERSION);
-        // 获取所有小于等于版本的接口;如果前端不指定版本号，则默认请求1.0.0版本的接口
+        // 如果前端不指定版本号，则默认请求1.0.0版本的接口
         if (!StringUtils.hasText(version)) {
             LOGGER.warn("未指定版本，使用默认1.0.0版本。");
             version = ApiVersionConstant.DEFAULT_VERSION;
